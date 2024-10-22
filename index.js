@@ -4,11 +4,14 @@ const name = document.querySelector(".name")
 
 function CountingFunction(){
     numbers = [] 
-    total = 0
+    sum = 0
     for (let i = 0; i < 101; i++) {
         numbers.push(i)
-        total = total + numbers[i]
+        if (i % 2 == 0) {
+            sum += i
+        }
+        
     }
     
-    alert ("The total is " + total)
+    alert ("The sum of all even numbers is " + sum)
 }
