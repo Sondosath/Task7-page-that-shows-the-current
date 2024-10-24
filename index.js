@@ -8,7 +8,6 @@ function getIp() {
     .then(ip => {
         console.log(ip);  
         name.textContent = `Your IP address is: ${ip}`; 
-
     })
     .catch(error => console.error('Error:', error));
 
