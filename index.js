@@ -2,19 +2,13 @@
 
 const name = document.querySelector(".name")
 
-//this function Create an HTML page that shows the current time in the format "HH:MM:SS", The time should update every second. function time() {
-    function time() {
-    const time = new Date();
-    let hours = time.getHours().toString().padStart(2, '0');
-    let minutes = time.getMinutes().toString().padStart(2, '0');
-    let seconds = time.getSeconds().toString().padStart(2, '0');
+function getIp() {
+    fetch('https://api.ipify.org/') 
+    .then(response => response.text()) 
+    .then(ip => {
+        console.log(ip);  
+        name.textContent = `Your IP address is: ${ip}`; 
 
-    let currentTime = `${hours}:${minutes}:${seconds}`;
-
-    document.getElementById('clock').textContent = currentTime;
+    })
+    
 }
-
-setInterval(time, 1000);
-time();
-
-
