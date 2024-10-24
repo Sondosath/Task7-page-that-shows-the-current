@@ -2,21 +2,19 @@
 
 const name = document.querySelector(".name")
 
-//this function create an array of all the numbers between 0, 100 and print the sum of only the even numbers
-function CountingFunction(){
+//this function Create an HTML page that shows the current time in the format "HH:MM:SS", The time should update every second. function time() {
+    function time() {
+    const time = new Date();
+    let hours = time.getHours().toString().padStart(2, '0');
+    let minutes = time.getMinutes().toString().padStart(2, '0');
+    let seconds = time.getSeconds().toString().padStart(2, '0');
 
-    numbers = [] 
-    sum = 0
+    let currentTime = `${hours}:${minutes}:${seconds}`;
 
-
-    for (let i = 0; i < 101; i++) {
-
-        numbers.push(i)
-
-        if (i % 2 == 0){
-            sum = sum + numbers[i]
-        }
-    }
-    
-    alert ("the sum of only the even numbers is " + sum)
+    document.getElementById('clock').textContent = currentTime;
 }
+
+setInterval(time, 1000);
+time();
+
+
