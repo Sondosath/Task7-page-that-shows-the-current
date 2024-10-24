@@ -10,5 +10,7 @@ function getIp() {
         name.textContent = `Your IP address is: ${ip}`; 
 
     })
+    .catch(error => console.error('Error:', error));
+
     
 }
