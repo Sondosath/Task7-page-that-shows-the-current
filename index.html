@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JavaScript Click Event Tutorial</title>
+    <title>Form Submission</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <p class="name"> <button onclick="getIp()">Get ip</button></p>
-    <script src="index.js">
-    </script>
+    <p class="name">
+        <br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="Name"><br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age">  <br>
+        <button onclick="submitting()">Submit</button>
+        <br><br>
+    </p>
+    <script src="index.js"></script>
 </body>
 </html>

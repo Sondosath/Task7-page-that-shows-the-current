@@ -1,15 +1,16 @@
 // c:/JoVision/index.js
 
-const name = document.querySelector(".name")
+function submitting() {
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const timestamp = new Date().toLocaleString();
 
-function getIp() {
-    fetch('https://api.ipify.org/') 
-    .then(response => response.text()) 
-    .then(ip => {
-        console.log(ip);  
-        name.textContent = `Your IP address is: ${ip}`; 
-    })
-    .catch(error => console.error('Error:', error));
+    const user = {
+        name,
+        age,
+        timestamp
+    };
 
-    
+    const { name: userName, age: userAge, timestamp: userTimestamp } = user;
+    alert(`Your name is: ${userName}\nYour age is: ${userAge}\nTimestamp: ${userTimestamp}`);
 }
