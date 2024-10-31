@@ -1,16 +1,28 @@
-// c:/JoVision/index.js
+function sendName() {
+    const nameValue = document.getElementById('name').value;
+    const url = `https://api.agify.io/?name=${nameValue}`;
 
-function submitting() {
-    const name = document.getElementById("name").value;
-    const age = document.getElementById("age").value;
-    const timestamp = new Date().toLocaleString();
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            document.getElementById('popup-content').innerText = `Your name is: ${data.name}\nYour age is: ${data.age}`;
+            openPopup();
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
 
-    const user = {
-        name,
-        age,
-        timestamp
-    };
+function openPopup() {
+    document.getElementById('popup').style.display = 'block';
+}
 
-    const { name: userName, age: userAge, timestamp: userTimestamp } = user;
-    alert(`Your name is: ${userName}\nYour age is: ${userAge}\nTimestamp: ${userTimestamp}`);
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
 }
